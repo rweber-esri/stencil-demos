@@ -22,7 +22,7 @@ import { Component, Host, h, Prop, Element, Watch } from '@stencil/core';
  * </grid-list>
  * ```
  * 
- * Example 2: A list layout with a single column
+ * Example 2: A grid layout with a single column
  * 
  * ```html
  * <grid-list>

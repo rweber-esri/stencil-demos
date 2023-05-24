@@ -28,7 +28,7 @@ Example 1: A grid layout with 3 columns
 </grid-list>
 ```
 
-Example 2: A list layout with a single column
+Example 2: A grid layout with a single column
 
 ```html
 <grid-list>

@@ -25,7 +25,7 @@ export namespace Components {
      *   <grid-list-item>10</grid-list-item>
      * </grid-list>
      * ```
-     * Example 2: A list layout with a single column
+     * Example 2: A grid layout with a single column
      * ```html
      * <grid-list>
      *   <grid-list-item>1</grid-list-item>
@@ -91,7 +91,7 @@ declare global {
      *   <grid-list-item>10</grid-list-item>
      * </grid-list>
      * ```
-     * Example 2: A list layout with a single column
+     * Example 2: A grid layout with a single column
      * ```html
      * <grid-list>
      *   <grid-list-item>1</grid-list-item>
@@ -164,7 +164,7 @@ declare namespace LocalJSX {
      *   <grid-list-item>10</grid-list-item>
      * </grid-list>
      * ```
-     * Example 2: A list layout with a single column
+     * Example 2: A grid layout with a single column
      * ```html
      * <grid-list>
      *   <grid-list-item>1</grid-list-item>
@@ -237,7 +237,7 @@ declare module "@stencil/core" {
              *   <grid-list-item>10</grid-list-item>
              * </grid-list>
              * ```
-             * Example 2: A list layout with a single column
+             * Example 2: A grid layout with a single column
              * ```html
              * <grid-list>
              *   <grid-list-item>1</grid-list-item>
