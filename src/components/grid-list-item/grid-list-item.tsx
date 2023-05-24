@@ -29,7 +29,7 @@ import { Component, Host, h } from '@stencil/core';
   styleUrl: 'grid-list-item.css',
   shadow: true,
 })
-export class LayoutListItem {
+export class GridListItem {
 
   render() {
     return (
