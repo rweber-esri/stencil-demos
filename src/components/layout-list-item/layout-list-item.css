@@ -1,0 +1,7 @@
+:host {
+  display: block;
+  grid-row-end: var(--grid-row-end);
+  grid-row-start: var(--grid-row-start);
+  grid-column-end: var(--grid-column-end);
+  grid-column-start: var(--grid-column-start);
+}

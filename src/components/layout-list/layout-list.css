@@ -1,0 +1,8 @@
+:host {
+  display: grid;
+  grid-template-columns: var(--grid-template-columns);
+}
+
+::slotted(layout-list-item) {
+  background-color: #eee;
+}

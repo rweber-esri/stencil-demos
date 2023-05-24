@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+    <script type="module" src="/build/stencil-demos.esm.js"></script>
+    <script nomodule src="/build/stencil-demos.js"></script>
+    <style>
+      label {
+        display: block;
+      }
+      layout-list {
+        grid-row-gap: 1rem;
+        grid-column-gap: 1rem;
+      }
+      layout-list-item {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="grid">
+        Grid:
+        <input
+          id="grid"
+          type="radio"
+          name="layout"
+          value="grid"
+          checked
+        />
+      </label>
+      <label for="list">
+        List:
+        <input
+          id="list"
+          type="radio"
+          name="layout"
+          value="list"
+        />
+      </label>
+      <label for="ltr">
+        LTR:
+        <input
+          id="ltr"
+          type="radio"
+          name="direction"
+          value="ltr"
+          checked
+        />
+      </label>
+      <label for="rtl">
+        RTL:
+        <input
+          id="rtl"
+          type="radio"
+          name="direction"
+          value="rtl"
+        />
+      </label>
+      <label for="cols">
+        Columns:
+        <select id="cols" name="cols">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </label>
+      <label for="add">
+        <button
+          type="button"
+        >
+          Add
+        </button>
+      </label>
+    </form>
+    <layout-list
+      layout="grid"
+      columns="3"
+      direction="ltr"
+    />
+    <script>
+      const createItem = index => {
+        const item = document.createElement('layout-list-item');
+        const span = document.createElement('span');
+        span.textContent = index + 1;
+        const button = document.createElement('button');
+        button.type = 'button'
+        button.dataset.index = index;
+        button.textContent = 'Delete';
+        item.appendChild(span);
+        item.appendChild(button);
+        return item;
+      };
+      const list = document.querySelector('layout-list');
+      Array.from({ length: 10 })
+        .map((_, index) => createItem(index))
+        .forEach(item => list.appendChild(item));
+      document.addEventListener('change', evt => {
+        if (evt.target.name === 'cols') {
+          list.columns = evt.target.value;
+        } else if (evt.target.name === 'layout') {
+          list.layout = evt.target.value;
+        } else {
+          list.direction = evt.target.value;
+        }
+      });
+      document.addEventListener('click', evt => {
+        if (evt.target.nodeName === 'BUTTON') {
+          if (evt.target.dataset.index !== undefined) {
+            const selector = `layout-list-item:nth-of-type(${parseInt(evt.target.dataset.index, 10) + 1})`;
+            const item = document.querySelector(selector);
+            list.removeChild(item);
+          } else {
+            const items = document.querySelectorAll('layout-list-item');
+            const item = createItem(items.length);
+            list.appendChild(item);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
