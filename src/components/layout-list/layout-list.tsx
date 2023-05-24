@@ -1,5 +1,47 @@
 import { Component, Host, h, Prop, Element, Watch } from '@stencil/core';
 
+/**
+ * A simple list component that uses CSS grid to arrange
+ * nested `layout-list-item` elements in either a `list`
+ * (single column) or `grid` (multiple columns) layout
+ * that supports LTR & RTL languages.
+ * 
+ * Example 1: A grid layout with 3 columns
+ * 
+ * ```html
+ * <layout-list layout="grid" columns="3">
+ *   <layout-list-item>1</layout-list-item>
+ *   <layout-list-item>2</layout-list-item>
+ *   <layout-list-item>3</layout-list-item>
+ *   <layout-list-item>4</layout-list-item>
+ *   <layout-list-item>5</layout-list-item>
+ *   <layout-list-item>6</layout-list-item>
+ *   <layout-list-item>7</layout-list-item>
+ *   <layout-list-item>8</layout-list-item>
+ *   <layout-list-item>9</layout-list-item>
+ *   <layout-list-item>10</layout-list-item>
+ * </layout-list>
+ * ```
+ * 
+ * Example 2: A list layout with a single column
+ * 
+ * ```html
+ * <layout-list layout="list">
+ *   <layout-list-item>1</layout-list-item>
+ *   <layout-list-item>2</layout-list-item>
+ *   <layout-list-item>3</layout-list-item>
+ *   <layout-list-item>4</layout-list-item>
+ *   <layout-list-item>5</layout-list-item>
+ *   <layout-list-item>6</layout-list-item>
+ *   <layout-list-item>7</layout-list-item>
+ *   <layout-list-item>8</layout-list-item>
+ *   <layout-list-item>9</layout-list-item>
+ *   <layout-list-item>10</layout-list-item>
+ * </layout-list>
+ * ```
+ * 
+ * @slot default - A slot to render `layout-list-item`'s into
+ */
 @Component({
   tag: 'layout-list',
   styleUrl: 'layout-list.css',
@@ -43,6 +85,7 @@ export class LayoutList {
   }
 
   constructor () {
+    // TODO: use `bind` util
     this.applyItemStyles = this.applyItemStyles.bind(this);
   }
 
@@ -55,6 +98,7 @@ export class LayoutList {
   }
 
   componentWillLoad () {
+    // TODO: add intl
     this.connect();
     this.applyItemStyles();
   }
@@ -76,6 +120,7 @@ export class LayoutList {
   }
 
   // TODO: debounce
+  // TODO: use intl.direction instead of this.direction
   applyItemStyles () {
     let row = 1;
     let col = this.direction === 'ltr'
@@ -83,7 +128,7 @@ export class LayoutList {
       : this._columns;
     this.element
       .querySelectorAll('layout-list-item')
-      .forEach((item: HTMLLayoutListItemElement, idx: number) => {
+      .forEach((item: HTMLLayoutListItemElement) => {
         const styles: Record<string, string> = {
           '--grid-row-end': row.toString(),
           '--grid-row-start': row.toString(),
@@ -125,6 +170,7 @@ export class LayoutList {
   render() {
     return (
       <Host
+        role="list"
         style={this.style}
       >
         <slot></slot>
