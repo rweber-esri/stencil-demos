@@ -10,11 +10,11 @@
       label {
         display: block;
       }
-      layout-list {
+      grid-list {
         grid-row-gap: 1rem;
         grid-column-gap: 1rem;
       }
-      layout-list-item {
+      grid-list-item {
         display: flex;
         justify-content: space-between;
       }
@@ -22,25 +22,6 @@
   </head>
   <body>
     <form>
-      <label for="grid">
-        Grid:
-        <input
-          id="grid"
-          type="radio"
-          name="layout"
-          value="grid"
-          checked
-        />
-      </label>
-      <label for="list">
-        List:
-        <input
-          id="list"
-          type="radio"
-          name="layout"
-          value="list"
-        />
-      </label>
       <label for="ltr">
         LTR:
         <input
@@ -79,14 +60,14 @@
         </button>
       </label>
     </form>
-    <layout-list
+    <grid-list
       layout="grid"
       columns="3"
       direction="ltr"
-    ></layout-list>
+    ></grid-list>
     <script>
       const createItem = index => {
-        const item = document.createElement('layout-list-item');
+        const item = document.createElement('grid-list-item');
         const span = document.createElement('span');
         span.textContent = index + 1;
         const button = document.createElement('button');
@@ -97,15 +78,13 @@
         item.appendChild(button);
         return item;
       };
-      const list = document.querySelector('layout-list');
+      const list = document.querySelector('grid-list');
       Array.from({ length: 10 })
         .map((_, index) => createItem(index))
         .forEach(item => list.appendChild(item));
       document.addEventListener('change', evt => {
         if (evt.target.name === 'cols') {
           list.columns = evt.target.value;
-        } else if (evt.target.name === 'layout') {
-          list.layout = evt.target.value;
         } else {
           list.direction = evt.target.value;
         }
@@ -113,11 +92,11 @@
       document.addEventListener('click', evt => {
         if (evt.target.nodeName === 'BUTTON') {
           if (evt.target.dataset.index !== undefined) {
-            const selector = `layout-list-item:nth-of-type(${parseInt(evt.target.dataset.index, 10) + 1})`;
+            const selector = `grid-list-item:nth-of-type(${parseInt(evt.target.dataset.index, 10) + 1})`;
             const item = document.querySelector(selector);
             list.removeChild(item);
           } else {
-            const items = document.querySelectorAll('layout-list-item');
+            const items = document.querySelectorAll('grid-list-item');
             const item = createItem(items.length);
             list.appendChild(item);
           }

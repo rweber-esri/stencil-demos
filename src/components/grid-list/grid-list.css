@@ -4,6 +4,6 @@
   grid-template-columns: var(--grid-template-columns);
 }
 
-::slotted(layout-list-item) {
+::slotted(grid-list-item) {
   background-color: #eee;
 }

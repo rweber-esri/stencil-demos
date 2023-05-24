@@ -8,224 +8,210 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     /**
      * A simple list component that uses CSS grid to arrange
-     * nested `layout-list-item` elements in either a `list`
-     * (single column) or `grid` (multiple columns) layout
-     * that supports LTR & RTL languages.
+     * nested `grid-list-item` elements in one or more columns
+     * supporting LTR and RTL languages.
      * Example 1: A grid layout with 3 columns
      * ```html
-     * <layout-list layout="grid" columns="3">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list columns="3">
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      * Example 2: A list layout with a single column
      * ```html
-     * <layout-list layout="list">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list>
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      */
-    interface LayoutList {
+    interface GridList {
         /**
           * The number of columns when "layout" is "grid". Defaults to 1.
          */
         "columns"?: number;
         "direction": 'ltr' | 'rtl';
-        /**
-          * The list layout. Can be either "list" or "grid"
-         */
-        "layout": 'list' | 'grid';
     }
     /**
-     * A simple list item component to nest within `layout-list`
-     * components to achieve a CSS grid based `list` (single column)
-     * or `grid` (multiple columns) layout that supports LTR & RTL
-     * languages.
+     * A simple list item component to nest within `grid-list`
+     * components to achieve a CSS grid layout that supports LTR
+     * & RTL languages.
      * Example: A grid layout with 3 columns
      * ```html
-     * <layout-list layout="grid" columns="3">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list layout="grid" columns="3">
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      */
-    interface LayoutListItem {
+    interface GridListItem {
     }
 }
 declare global {
     /**
      * A simple list component that uses CSS grid to arrange
-     * nested `layout-list-item` elements in either a `list`
-     * (single column) or `grid` (multiple columns) layout
-     * that supports LTR & RTL languages.
+     * nested `grid-list-item` elements in one or more columns
+     * supporting LTR and RTL languages.
      * Example 1: A grid layout with 3 columns
      * ```html
-     * <layout-list layout="grid" columns="3">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list columns="3">
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      * Example 2: A list layout with a single column
      * ```html
-     * <layout-list layout="list">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list>
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      */
-    interface HTMLLayoutListElement extends Components.LayoutList, HTMLStencilElement {
+    interface HTMLGridListElement extends Components.GridList, HTMLStencilElement {
     }
-    var HTMLLayoutListElement: {
-        prototype: HTMLLayoutListElement;
-        new (): HTMLLayoutListElement;
+    var HTMLGridListElement: {
+        prototype: HTMLGridListElement;
+        new (): HTMLGridListElement;
     };
     /**
-     * A simple list item component to nest within `layout-list`
-     * components to achieve a CSS grid based `list` (single column)
-     * or `grid` (multiple columns) layout that supports LTR & RTL
-     * languages.
+     * A simple list item component to nest within `grid-list`
+     * components to achieve a CSS grid layout that supports LTR
+     * & RTL languages.
      * Example: A grid layout with 3 columns
      * ```html
-     * <layout-list layout="grid" columns="3">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list layout="grid" columns="3">
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      */
-    interface HTMLLayoutListItemElement extends Components.LayoutListItem, HTMLStencilElement {
+    interface HTMLGridListItemElement extends Components.GridListItem, HTMLStencilElement {
     }
-    var HTMLLayoutListItemElement: {
-        prototype: HTMLLayoutListItemElement;
-        new (): HTMLLayoutListItemElement;
+    var HTMLGridListItemElement: {
+        prototype: HTMLGridListItemElement;
+        new (): HTMLGridListItemElement;
     };
     interface HTMLElementTagNameMap {
-        "layout-list": HTMLLayoutListElement;
-        "layout-list-item": HTMLLayoutListItemElement;
+        "grid-list": HTMLGridListElement;
+        "grid-list-item": HTMLGridListItemElement;
     }
 }
 declare namespace LocalJSX {
     /**
      * A simple list component that uses CSS grid to arrange
-     * nested `layout-list-item` elements in either a `list`
-     * (single column) or `grid` (multiple columns) layout
-     * that supports LTR & RTL languages.
+     * nested `grid-list-item` elements in one or more columns
+     * supporting LTR and RTL languages.
      * Example 1: A grid layout with 3 columns
      * ```html
-     * <layout-list layout="grid" columns="3">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list columns="3">
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      * Example 2: A list layout with a single column
      * ```html
-     * <layout-list layout="list">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list>
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      */
-    interface LayoutList {
+    interface GridList {
         /**
           * The number of columns when "layout" is "grid". Defaults to 1.
          */
         "columns"?: number;
         "direction"?: 'ltr' | 'rtl';
-        /**
-          * The list layout. Can be either "list" or "grid"
-         */
-        "layout"?: 'list' | 'grid';
     }
     /**
-     * A simple list item component to nest within `layout-list`
-     * components to achieve a CSS grid based `list` (single column)
-     * or `grid` (multiple columns) layout that supports LTR & RTL
-     * languages.
+     * A simple list item component to nest within `grid-list`
+     * components to achieve a CSS grid layout that supports LTR
+     * & RTL languages.
      * Example: A grid layout with 3 columns
      * ```html
-     * <layout-list layout="grid" columns="3">
-     *   <layout-list-item>1</layout-list-item>
-     *   <layout-list-item>2</layout-list-item>
-     *   <layout-list-item>3</layout-list-item>
-     *   <layout-list-item>4</layout-list-item>
-     *   <layout-list-item>5</layout-list-item>
-     *   <layout-list-item>6</layout-list-item>
-     *   <layout-list-item>7</layout-list-item>
-     *   <layout-list-item>8</layout-list-item>
-     *   <layout-list-item>9</layout-list-item>
-     *   <layout-list-item>10</layout-list-item>
-     * </layout-list>
+     * <grid-list layout="grid" columns="3">
+     *   <grid-list-item>1</grid-list-item>
+     *   <grid-list-item>2</grid-list-item>
+     *   <grid-list-item>3</grid-list-item>
+     *   <grid-list-item>4</grid-list-item>
+     *   <grid-list-item>5</grid-list-item>
+     *   <grid-list-item>6</grid-list-item>
+     *   <grid-list-item>7</grid-list-item>
+     *   <grid-list-item>8</grid-list-item>
+     *   <grid-list-item>9</grid-list-item>
+     *   <grid-list-item>10</grid-list-item>
+     * </grid-list>
      * ```
      */
-    interface LayoutListItem {
+    interface GridListItem {
     }
     interface IntrinsicElements {
-        "layout-list": LayoutList;
-        "layout-list-item": LayoutListItem;
+        "grid-list": GridList;
+        "grid-list-item": GridListItem;
     }
 }
 export { LocalJSX as JSX };
@@ -234,63 +220,61 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             /**
              * A simple list component that uses CSS grid to arrange
-             * nested `layout-list-item` elements in either a `list`
-             * (single column) or `grid` (multiple columns) layout
-             * that supports LTR & RTL languages.
+             * nested `grid-list-item` elements in one or more columns
+             * supporting LTR and RTL languages.
              * Example 1: A grid layout with 3 columns
              * ```html
-             * <layout-list layout="grid" columns="3">
-             *   <layout-list-item>1</layout-list-item>
-             *   <layout-list-item>2</layout-list-item>
-             *   <layout-list-item>3</layout-list-item>
-             *   <layout-list-item>4</layout-list-item>
-             *   <layout-list-item>5</layout-list-item>
-             *   <layout-list-item>6</layout-list-item>
-             *   <layout-list-item>7</layout-list-item>
-             *   <layout-list-item>8</layout-list-item>
-             *   <layout-list-item>9</layout-list-item>
-             *   <layout-list-item>10</layout-list-item>
-             * </layout-list>
+             * <grid-list columns="3">
+             *   <grid-list-item>1</grid-list-item>
+             *   <grid-list-item>2</grid-list-item>
+             *   <grid-list-item>3</grid-list-item>
+             *   <grid-list-item>4</grid-list-item>
+             *   <grid-list-item>5</grid-list-item>
+             *   <grid-list-item>6</grid-list-item>
+             *   <grid-list-item>7</grid-list-item>
+             *   <grid-list-item>8</grid-list-item>
+             *   <grid-list-item>9</grid-list-item>
+             *   <grid-list-item>10</grid-list-item>
+             * </grid-list>
              * ```
              * Example 2: A list layout with a single column
              * ```html
-             * <layout-list layout="list">
-             *   <layout-list-item>1</layout-list-item>
-             *   <layout-list-item>2</layout-list-item>
-             *   <layout-list-item>3</layout-list-item>
-             *   <layout-list-item>4</layout-list-item>
-             *   <layout-list-item>5</layout-list-item>
-             *   <layout-list-item>6</layout-list-item>
-             *   <layout-list-item>7</layout-list-item>
-             *   <layout-list-item>8</layout-list-item>
-             *   <layout-list-item>9</layout-list-item>
-             *   <layout-list-item>10</layout-list-item>
-             * </layout-list>
+             * <grid-list>
+             *   <grid-list-item>1</grid-list-item>
+             *   <grid-list-item>2</grid-list-item>
+             *   <grid-list-item>3</grid-list-item>
+             *   <grid-list-item>4</grid-list-item>
+             *   <grid-list-item>5</grid-list-item>
+             *   <grid-list-item>6</grid-list-item>
+             *   <grid-list-item>7</grid-list-item>
+             *   <grid-list-item>8</grid-list-item>
+             *   <grid-list-item>9</grid-list-item>
+             *   <grid-list-item>10</grid-list-item>
+             * </grid-list>
              * ```
              */
-            "layout-list": LocalJSX.LayoutList & JSXBase.HTMLAttributes<HTMLLayoutListElement>;
+            "grid-list": LocalJSX.GridList & JSXBase.HTMLAttributes<HTMLGridListElement>;
             /**
-             * A simple list item component to nest within `layout-list`
-             * components to achieve a CSS grid based `list` (single column)
-             * or `grid` (multiple columns) layout that supports LTR & RTL
-             * languages.
+             * A simple list item component to nest within `grid-list`
+             * components to achieve a CSS grid layout that supports LTR
+             * & RTL languages.
              * Example: A grid layout with 3 columns
              * ```html
-             * <layout-list layout="grid" columns="3">
-             *   <layout-list-item>1</layout-list-item>
-             *   <layout-list-item>2</layout-list-item>
-             *   <layout-list-item>3</layout-list-item>
-             *   <layout-list-item>4</layout-list-item>
-             *   <layout-list-item>5</layout-list-item>
-             *   <layout-list-item>6</layout-list-item>
-             *   <layout-list-item>7</layout-list-item>
-             *   <layout-list-item>8</layout-list-item>
-             *   <layout-list-item>9</layout-list-item>
-             *   <layout-list-item>10</layout-list-item>
-             * </layout-list>
+             * <grid-list layout="grid" columns="3">
+             *   <grid-list-item>1</grid-list-item>
+             *   <grid-list-item>2</grid-list-item>
+             *   <grid-list-item>3</grid-list-item>
+             *   <grid-list-item>4</grid-list-item>
+             *   <grid-list-item>5</grid-list-item>
+             *   <grid-list-item>6</grid-list-item>
+             *   <grid-list-item>7</grid-list-item>
+             *   <grid-list-item>8</grid-list-item>
+             *   <grid-list-item>9</grid-list-item>
+             *   <grid-list-item>10</grid-list-item>
+             * </grid-list>
              * ```
              */
-            "layout-list-item": LocalJSX.LayoutListItem & JSXBase.HTMLAttributes<HTMLLayoutListItemElement>;
+            "grid-list-item": LocalJSX.GridListItem & JSXBase.HTMLAttributes<HTMLGridListItemElement>;
         }
     }
 }
